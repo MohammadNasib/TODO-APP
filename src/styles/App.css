@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+:root {
+    --bg_img: #161722 url('../assets/images/bg-mobile-dark.jpg') top/100% 10.3rem no-repeat;
+    --themeLogo: url('../assets/images/icon-moon.svg') right/30% no-repeat;
+    --todo_bg: #25273c;
+    --todo_shadow: #161722;
+    --font_color: #cacde8;
+    --font_color2: #989898;
+    --font_color_hover: #fff;
+    --filter: contrast(0.01);
+    --filter_hover: invert(1);
+}
+
+.light_theme {
+    --bg_img: #e4e5f1 url('../assets/images/bg-mobile-light.jpg') top/100% 10.3rem no-repeat;
+    --themeLogo: url('../assets/images/icon-sun.svg') right/30% no-repeat;
+    --todo_bg: #fafafa;
+    --todo_shadow: #3a3b3d;
+    --font_color: #484b6a;
+    --font_color2: #999999;
+    --font_color_hover: #484b6a;
+    --filter_hover: none;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: all 0.15s ease-in-out;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg_img);
+}
+
+.hide {
+    display: none !important;
+}
+
+.commonStyles {
+    background-color: var(--todo_bg);
+    border-radius: 0.4em;
+    padding: 0.8em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.customCheckbox {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid;
+    border-image-slice: 1;
+    display: inline-block;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input::placeholder {
+    font-size: 1rem;
+    color: var(--font_color2);
+}
+
+input[type='radio'] {
+    opacity: 0;
+    cursor: pointer;
+}
+
+.remove,
+.clearBtn,
+.filter span,
+.pointer {
+    cursor: pointer;
+}
+
+.writeLogo,
+.remove {
+    -webkit-filter: var(--filter);
+    filter: var(--filter);
+}
+
+.writeLogo:hover,
+.remove:hover {
+    -webkit-filter: var(--filter_hover);
+    filter: var(--filter_hover);
+}
+
+.filter span:hover,
+.clearBtn:hover {
+    color: var(--font_color);
+}
+
+.main {
+    width: 90vw;
+    max-width: 30rem;
+    margin: 5vh auto;
+}

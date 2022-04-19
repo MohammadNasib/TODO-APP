@@ -1,0 +1,44 @@
+header {
+    margin-bottom: 1rem;
+}
+
+.logoDiv {
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.logoDiv .logo {
+    display: inline-block;
+    color: white;
+}
+
+.logoDiv .themeLogo {
+    background: var(--themeLogo);
+    width: 6rem;
+}
+
+.inptDiv input {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    color: var(--font_color);
+    width: 85%;
+    height: 2rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+.writeLogo {
+    background: url('../assets/images/icon-write.svg') center/100% no-repeat;
+    height: 1.7rem;
+    width: 1.5rem;
+    border: none;
+}
+
+.errMsg {
+    text-align: center;
+    padding-top: 0.5em;
+    color: var(--font_color2);
+}
