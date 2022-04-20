@@ -40,5 +40,5 @@ header {
 .errMsg {
     text-align: center;
     padding-top: 0.5em;
-    color: var(--font_color2);
+    color: var(--errColor);
 }

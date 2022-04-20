@@ -3,11 +3,11 @@ import Header from './Header';
 import Footer from './Footer';
 import Todos from './Todos';
 
-export default function TodoApp({ mainRef }) {
+export default function TodoApp({ changeTheme }) {
     const [val, setVal] = useState('');
+    const [todoArray, setTodoArray] = useState([]);
     const errmsgRef = useRef();
     const checkRef = useRef();
-    const [todoArray, setTodoArray] = useState([]);
 
     //check Local storage
     useEffect(() => {
@@ -28,13 +28,14 @@ export default function TodoApp({ mainRef }) {
     }
 
     // theme changer
-    function changeTheme() {
-        mainRef.current.classList.add('light_theme');
-    }
+
     // saving to localstorage
     function saveFunction() {
         if (val.length > 0) {
-            let newTodoArray = [...todoArray, { data: val, completed: false, hide: false }];
+            let newTodoArray = [
+                ...todoArray,
+                { data: val, completed: false, hide: false, editable: false },
+            ];
             setTodoArray(newTodoArray);
 
             localStorage.setItem('todos', JSON.stringify(newTodoArray));

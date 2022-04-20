@@ -3,7 +3,7 @@ import React from 'react';
 import '../styles/App.css';
 import '../styles/Todos.css';
 
-export default function Todos({ todoArray, checkedTodo, removeTodo, show, checkRef }) {
+export default function Todos({ todoArray, checkedTodo, removeTodo, checkRef }) {
     return (
         <>
             <section className='content'>
@@ -25,7 +25,7 @@ export default function Todos({ todoArray, checkedTodo, removeTodo, show, checkR
                             </span>
 
                             <span
-                                className='remove'
+                                className={`remove pointer`}
                                 id={index}
                                 onClick={() => removeTodo(index)}
                             ></span>

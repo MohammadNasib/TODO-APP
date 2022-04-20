@@ -10,15 +10,15 @@
     --font_color_hover: #fff;
     --filter: contrast(0.01);
     --filter_hover: invert(1);
+    --errColor: #cdc6c6;
 }
-
-.light_theme {
+[data-theme='light'] {
     --bg_img: #e4e5f1 url('../assets/images/bg-mobile-light.jpg') top/100% 10.3rem no-repeat;
     --themeLogo: url('../assets/images/icon-sun.svg') right/30% no-repeat;
-    --todo_bg: #fafafa;
+    --todo_bg: #d2d3dd;
     --todo_shadow: #3a3b3d;
-    --font_color: #484b6a;
-    --font_color2: #999999;
+    --font_color: #1b1b20;
+    --font_color2: #534949;
     --font_color_hover: #484b6a;
     --filter_hover: none;
 }
@@ -70,8 +70,6 @@ input[type='radio'] {
     cursor: pointer;
 }
 
-.remove,
-.clearBtn,
 .filter span,
 .pointer {
     cursor: pointer;

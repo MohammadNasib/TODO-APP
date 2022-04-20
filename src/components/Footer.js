@@ -10,7 +10,7 @@ export default function Footer({ todoArray, filterFunction, clearCompleted }) {
                     <span>{todoArray.length}</span> items
                 </div>
 
-                <span className='clearBtn' onClick={clearCompleted}>
+                <span className={`clearBtn pointer`} onClick={clearCompleted}>
                     Clear Completed
                 </span>
 
