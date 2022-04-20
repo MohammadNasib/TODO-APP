@@ -32,10 +32,7 @@ export default function TodoApp({ changeTheme }) {
     // saving to localstorage
     function saveFunction() {
         if (val.length > 0) {
-            let newTodoArray = [
-                ...todoArray,
-                { data: val, completed: false, hide: false, editable: false },
-            ];
+            let newTodoArray = [...todoArray, { data: val, completed: false, hide: false }];
             setTodoArray(newTodoArray);
 
             localStorage.setItem('todos', JSON.stringify(newTodoArray));
