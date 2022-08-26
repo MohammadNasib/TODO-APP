@@ -7,7 +7,7 @@ export default function Header({
     handleKeyPress,
     val,
     setVal,
-    errmsgRef,
+    errMsgRef,
     changeTheme,
 }) {
     return (
@@ -34,7 +34,7 @@ export default function Header({
                 />
             </div>
 
-            <div className={`errMsg hide `} ref={errmsgRef}>
+            <div className={`errMsg hide `} ref={errMsgRef}>
                 <h4>Please write something !</h4>
             </div>
         </header>

@@ -6,17 +6,17 @@ import Todos from './Todos';
 export default function TodoApp({ changeTheme }) {
     const [val, setVal] = useState('');
     const [todoArray, setTodoArray] = useState([]);
-    const errmsgRef = useRef();
+    const errMsgRef = useRef();
     const checkRef = useRef();
 
     //check Local storage
     useEffect(() => {
         checkStorage();
-        console.log('rendered');
     }, []);
 
     function checkStorage() {
         const todos = localStorage.getItem('todos');
+
         if (todos !== null) {
             let tempArray = JSON.parse(todos).map((todo) => ({
                 data: todo.data,
@@ -27,8 +27,6 @@ export default function TodoApp({ changeTheme }) {
         }
     }
 
-    // theme changer
-
     // saving to localstorage
     function saveFunction() {
         if (val.length > 0) {
@@ -37,12 +35,10 @@ export default function TodoApp({ changeTheme }) {
 
             localStorage.setItem('todos', JSON.stringify(newTodoArray));
             setVal('');
-            errmsgRef.current.classList.add('hide');
+            errMsgRef.current.classList.add('hide');
         } else {
-            errmsgRef.current.classList.remove('hide');
+            errMsgRef.current.classList.remove('hide');
         }
-
-        // console.log(checkBox);
     }
 
     function handleKeyPress(e) {
@@ -53,27 +49,25 @@ export default function TodoApp({ changeTheme }) {
     }
 
     // // checked function
-    function checkedTodo(index1) {
+    function checkedTodo(checkedIndex) {
         const checkedArray = [...todoArray];
-        checkedArray[index1].completed = !checkedArray[index1].completed;
+        checkedArray[checkedIndex].completed = !checkedArray[checkedIndex].completed;
         setTodoArray(checkedArray);
         localStorage.setItem('todos', JSON.stringify(checkedArray));
     }
 
     // remove function
-    function removeTodo(index1) {
-        const removedArray = todoArray.filter((todo, index) => index1 !== index && todo);
+    function removeTodo(removedIndex) {
+        const filteredArray = todoArray.filter((todo, index) => removedIndex !== index && todo);
 
-        setTodoArray(removedArray);
-        localStorage.setItem('todos', JSON.stringify(removedArray));
-        console.log(removedArray);
+        setTodoArray(filteredArray);
+        localStorage.setItem('todos', JSON.stringify(filteredArray));
     }
 
     //filter function
-    function filterFunction(filter) {
-        switch (filter) {
+    function filterFunction(filterValue) {
+        switch (filterValue) {
             case 'all':
-                console.log('this is all');
                 const allArray = todoArray.map((todo) => ({
                     data: todo.data,
                     completed: todo.completed,
@@ -81,24 +75,25 @@ export default function TodoApp({ changeTheme }) {
                 }));
                 setTodoArray(allArray);
                 break;
+
             case 'active':
-                console.log('this is active');
                 const activeArray = todoArray.map((todo) => ({
                     data: todo.data,
                     completed: todo.completed,
-                    hide: todo.completed ? true : false,
+                    hide: todo.completed || false,
                 }));
                 setTodoArray(activeArray);
                 break;
+
             case 'completed':
-                console.log('this is completed');
                 const completedArray = todoArray.map((todo) => ({
                     data: todo.data,
                     completed: todo.completed,
-                    hide: todo.completed ? false : true,
+                    hide: !todo.completed && true,
                 }));
                 setTodoArray(completedArray);
                 break;
+
             default:
                 console.log('this is default');
         }
@@ -120,7 +115,7 @@ export default function TodoApp({ changeTheme }) {
                         saveFunction={saveFunction}
                         handleKeyPress={handleKeyPress}
                         val={val}
-                        errmsgRef={errmsgRef}
+                        errMsgRef={errMsgRef}
                         setVal={setVal}
                         changeTheme={changeTheme}
                     />

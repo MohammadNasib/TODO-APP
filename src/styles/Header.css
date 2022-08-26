@@ -31,9 +31,9 @@ header {
 }
 
 .writeLogo {
-    background: url('../assets/images/icon-write.svg') center/100% no-repeat;
     height: 1.7rem;
     width: 1.5rem;
+    background: url('../assets/images/icon-write.svg') center/100% no-repeat;
     border: none;
 }
 
